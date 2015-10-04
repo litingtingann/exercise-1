@@ -6,6 +6,12 @@ void main() {
     ..onClick.listen(start1);
 }
 void start(int origin1,int origin2,MouseEvent e){
+  if(origin1>origin2){
+    var temp;
+    temp=origin2;
+    origin2=origin1;
+    origin1=temp;
+  }
   int sum=0;
   for(int i = origin1; i <= origin2; i++){
     sum=sum+i;
