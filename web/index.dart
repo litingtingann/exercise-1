@@ -1,9 +1,13 @@
 import 'dart:html';
 import 'dart:math' as math;
+var number=0;
 void main() {
   querySelector('#sample_text_id')
     ..text = 'Click me!'
     ..onClick.listen((MouseEvent e)=>randomStudentID("you!",e));
+  querySelector('#sample_text_id2')
+    ..text = '1+..+100=?'
+    ..onClick.listen(addSum);
 }
 
 void reverseText(MouseEvent event) {
@@ -13,6 +17,16 @@ void reverseText(MouseEvent event) {
     buffer.write(text[i]);
   }
   querySelector('#sample_text_id').text = buffer.toString();
+}
+void addSum(MouseEvent event) {
+  var text = querySelector('#sample_text_id2').text;
+  for (var i = 1;i<=100;i++)
+  {
+    number = i+ number;
+  }
+  number=5050;
+  querySelector('#sample_text_id2').text = number.toString();
+
 }
 void randomStudentID(String showStr,MouseEvent even){
   var students={
