@@ -1,29 +1,32 @@
 import 'dart:html';
-import 'dart:math' as math;
+import 'dart:math' as math ;
+
 void main() {
   querySelector('#sample_text_id')
-    ..text = 'Click me!'
-    ..onClick.listen((MouseEvent e)=>randomStudentID("you!",e));
+    ..text = '1+2+...+100='
+    ..onClick.listen(oneHundred);
+
+  querySelector('#button_add_id')
+    ..text='Add'
+    ..onClick.listen(addThemUp);
 }
 
-void reverseText(MouseEvent event) {
-  var text = querySelector('#sample_text_id').text;
-  var buffer = new StringBuffer();
-  for (int i = text.length - 1; i >= 0; i--) {
-    buffer.write(text[i]);
-  }
-  querySelector('#sample_text_id').text = buffer.toString();
+int addDo(var a, var b){
+  var c = a+b;
+  return c;
 }
-void randomStudentID(String showStr,MouseEvent even){
-  var students={
-    0:10001,
-    1:10002,
-    2:100003,
-    3:100004,
-    4:100005,
-    5:100005
-  };
-  var random = new math.Random();
-  var getYou=students[random.nextInt(6)];
-  querySelector('#sample_studentid_id').text = getYou.toString()+showStr;
+
+void addThemUp(MouseEvent event){
+  var x = int.parse(querySelector('#number_a').value);
+  var y = int.parse(querySelector('#number_b').value);
+  querySelector('#sample_text_id2').text=addDo(x,y).toString();
+}
+
+void oneHundred(MouseEvent event){
+  var sum = 0;
+  var i;
+  for(i=1;i<=100;i++){
+    sum=sum+i;
+  }
+  querySelector('#sample_text_id').text =sum.toString();
 }
