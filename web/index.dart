@@ -21,7 +21,7 @@ void randomStudentID(String showStr,MouseEvent even){
     2:100003,
     3:100004,
     4:100005,
-    5:100005
+    5:100007,
   };
   var random = new math.Random();
   var getYou=students[random.nextInt(6)];
